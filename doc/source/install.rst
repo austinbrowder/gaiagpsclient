@@ -4,7 +4,7 @@ Installing gaiagpsclient
 The home page for the project is on `github`__, but the following recipes
 will be what most people will want.
 
-.. _github: https://github.com/kk7ds/gaiagpsclient
+.. _github: https://github.com/austinbrowder/gaiagpsclient
 
 __ github_
 
@@ -19,7 +19,7 @@ Ubuntu/Debian
 .. prompt:: bash
 
   sudo apt-get install -y python3-pip git
-  sudo python3 -mpip install git+https://github.com/kk7ds/gaiagpsclient
+  sudo python3 -mpip install git+https://github.com/austinbrowder/gaiagpsclient
 
 Fedora/Red Hat
 ~~~~~~~~~~~~~~
@@ -27,7 +27,7 @@ Fedora/Red Hat
 .. prompt:: bash
 
   sudo dnf -y install python3-pip git
-  sudo python3 -mpip install git+https://github.com/kk7ds/gaiagpsclient
+  sudo python3 -mpip install git+https://github.com/austinbrowder/gaiagpsclient
 
 macOS
 -----
@@ -37,7 +37,7 @@ On a Mac, homebrew_ is required. Install it first with the instructions on `thei
 .. prompt:: bash
 
   brew install python3 git
-  sudo python3 -mpip install git+https://github.com/kk7ds/gaiagpsclient
+  sudo python3 -mpip install git+https://github.com/austinbrowder/gaiagpsclient
 
 .. _homebrew: https://brew.sh
 
@@ -52,7 +52,7 @@ On Windows, you first need to download Python from `python.org <https://www.pyth
 
 Next, you can use ``python`` and ``pip`` to install directly from github. `Open the command prompt <https://www.lifewire.com/how-to-open-command-prompt-2618089>`_ and type::
 
-  python -mpip install https://github.com/kk7ds/gaiagpsclient/archive/master.zip
+  python -mpip install https://github.com/austinbrowder/gaiagpsclient/archive/master.zip
 
 
 .. _ValidateInstall:
