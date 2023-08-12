@@ -6,7 +6,7 @@
 GaiaGPS Python Client documentation
 ===================================
 
-This is the documentation for the `gaiagpsclient <https://github.com/kk7ds/gaiagpsclient>`_ library and utility.
+This is the documentation for the `gaiagpsclient <https://github.com/austinbrowder/gaiagpsclient>`_ library and utility.
 
 In short, this is a command-line utility for interacting with
 `gaiagps.com <https://www.gaiagps.com>`_. It can help perform and automate many normal tasks, as

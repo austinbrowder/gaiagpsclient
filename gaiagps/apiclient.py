@@ -79,7 +79,7 @@ try:
     USER_AGENT_ELEMENTS.append('requests/%s' % requests.__version__)
 except Exception:
     pass
-USER_AGENT = 'https://github.com/kk7ds/gaiagpsclient (%s)' % (
+USER_AGENT = 'https://github.com/austinbrowder/gaiagpsclient (%s)' % (
     '; '.join(USER_AGENT_ELEMENTS))
 
 
