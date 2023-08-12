@@ -127,6 +127,8 @@ class GaiaClient(object):
         :returns: ``True`` if we are already logged in
         :rtype: `bool`
         """
+        print("Request Headers:", self.s.headers)
+        print("Request Cookies:", self.s.cookies)
         r = self.s.get(gurl('profile'))
         return 'login' not in r.url
 
@@ -166,6 +168,8 @@ class GaiaClient(object):
         """
         assert objtype in ('folder', 'track', 'waypoint', 'photo')
 
+        print("Request Headers:", self.s.headers)
+        print("Request Cookies:", self.s.cookies)
         r = self.s.get(gurl('api', 'objects', objtype),
                        params={
                            'count': '5000', 'page': '1',
@@ -175,7 +179,9 @@ class GaiaClient(object):
                            'sort_direction': 'desc',
                            'sort_field': 'create_date',
                        })
-        return r.json()
+        return print("Response Headers:", r.headers)
+        print("Response Cookies:", r.cookies)
+        r.json()
 
     def lookup_object(self, objtype, name):
         """Lookup a single object by name.
@@ -251,7 +257,9 @@ class GaiaClient(object):
         r = self.s.post(gurl('api', 'objects', objtype), json=objdata)
         _logresp(r)
         if r:
-            obj = r.json()
+            obj = print("Response Headers:", r.headers)
+        print("Response Cookies:", r.cookies)
+        r.json()
             if 'id' not in obj and 'id' in obj.get('properties', {}):
                 # WTF Gaia?
                 obj['id'] = obj['properties']['id']
@@ -273,7 +281,9 @@ class GaiaClient(object):
                        json=objdata)
         _logresp(r)
         if r.status_code <= 201:
-            return r.json()
+            return print("Response Headers:", r.headers)
+        print("Response Cookies:", r.cookies)
+        r.json()
         elif r.status_code < 299:
             return True
 
@@ -416,6 +426,8 @@ class GaiaClient(object):
 
         photo = self.get_object('photo', id_=photoid)
         url = photo['properties']['%s_url' % size]
+        print("Request Headers:", self.s.headers)
+        print("Request Cookies:", self.s.cookies)
         r = self.s.get(url)
         if r.status_code != 200:
             LOG.debug('Attempt to fetch %r returned %i: %s' % (url,
@@ -437,13 +449,17 @@ class GaiaClient(object):
         :raises RuntimeError: if the server refuses to list accesses
         """
 
+        print("Request Headers:", self.s.headers)
+        print("Request Cookies:", self.s.cookies)
         r = self.s.get(gurl('api', 'objects', 'folder', folderid, 'access'))
         if r.status_code != 200:
             LOG.debug('Server refused folder access with %i: %s' % (
                 r.status_code, r.reason))
             raise RuntimeError('Server refused to list access')
 
-        return r.json()
+        return print("Response Headers:", r.headers)
+        print("Response Cookies:", r.cookies)
+        r.json()
 
     def get_invites(self, folderid):
         """Get invite information for a folder.
@@ -455,10 +471,14 @@ class GaiaClient(object):
         :raises RuntimeError: if the server refuses to list invites
         """
 
+        print("Request Headers:", self.s.headers)
+        print("Request Cookies:", self.s.cookies)
         r = self.s.get(gurl('api', 'objects', 'folder', folderid, 'invite'))
         if r.status_code != 200:
             LOG.debug('Server refused folder invites with %i: %s' % (
                 r.status_code, r.reason))
             raise RuntimeError('Server refused to list invites')
 
-        return r.json()
+        return print("Response Headers:", r.headers)
+        print("Response Cookies:", r.cookies)
+        r.json()
