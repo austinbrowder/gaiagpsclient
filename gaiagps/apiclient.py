@@ -100,7 +100,7 @@ class GaiaClient(object):
     :raises RuntimeError: if session is stale and credentials are
             not provided
     """
-
+    
     def __init__(self, username, password, cookies=None):
         self.username = username
         self.password = password
